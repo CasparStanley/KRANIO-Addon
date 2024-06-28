@@ -3,7 +3,7 @@
 <h2>Installation</h2>
 
 <ol>
-  <li>Download the .zip file to any location. (DO NOT extract the zip file)</li>
+  <li>Click the <b>"<> Code"</b>-button and download the .zip file to any location. (DO NOT extract the zip file)</li>
   <li>In Blender, navigate to Edit -> Preferences. Then the Addons tab.</li>
   <li>Hit the install button, locate the zip, and install the zip file.</li>
   <li>Make sure the addon is displayed in the list and enabled (search for "KRANIO" if needed)</li>
