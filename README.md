@@ -2,8 +2,6 @@
 
 <h2>Installation</h2>
 
-![Kranio_Addon Installation](https://github.com/CasparStanley/KRANIO-Addon/assets/14052888/9223d135-12e6-4c46-a8da-2c46d704bdd9)
-
 <ol>
   <li>Download the .zip file to any location. (DO NOT extract the zip file)</li>
   <li>In Blender, navigate to Edit -> Preferences. Then the Addons tab.</li>
@@ -12,6 +10,8 @@
   <li>In the 3D viewport, press ‘N’ to open the side panel in the viewport</li>
   <li>Click on the KRANIO Addon tab.</li>
 </ol>
+
+![Kranio_Addon Installation](https://github.com/CasparStanley/KRANIO-Addon/assets/14052888/9223d135-12e6-4c46-a8da-2c46d704bdd9)
 
 <h3>Uninstall</h3>
 
