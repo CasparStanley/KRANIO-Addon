@@ -22,7 +22,7 @@ If you have an installation issue, you may need to cleanly remove the addon befo
   <li>Expand the KRANIO Addon item, and press the "Remove" button</li>
   <ul>
     <li>Alternatively, you can simply uncheck the box next to the addon name. This will only disable the addon, not uninstall it, making it easier to start using again later.</li>
-    <li>If you are troubleshooting, however, you should try and fully remove the addon, and ensure all versions of Blender are restarted before attempting to install it again.</li>
+    <li>If you are troubleshooting, however, you should try fully removing the addon, and ensure all versions of Blender are restarted before attempting to install it again.</li>
   </ul>
 </ol>
 
