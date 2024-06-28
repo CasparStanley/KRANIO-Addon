@@ -145,7 +145,7 @@ These two panels help you keep track of your objects in the baking process, and 
 
 > [!WARNING]
 > <b>SimpleBake couldn’t be loaded</b>
-> Make sure you have the SimpleBake addon installed
+> <br>Make sure you have the SimpleBake addon installed
 >
 > ![Kranio_Addon Panel_warning01_sb-couldnt-load](https://github.com/CasparStanley/KRANIO-Addon/assets/14052888/15248f95-c920-4af7-b113-ea1a61378c9b)
 >
@@ -157,7 +157,7 @@ These two panels help you keep track of your objects in the baking process, and 
 
 > [!WARNING]
 > SimpleBake is installed but not enabled
-> Follow the instructions above to enable
+> <br>Follow the instructions above to enable
 >
 > ![Kranio_Addon Panel_warning02_sb-installed-but-not-enabled](https://github.com/CasparStanley/KRANIO-Addon/assets/14052888/cc545ba4-7a9c-4cb7-9a90-e8113cf29faf)
 >
