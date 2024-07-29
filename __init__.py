@@ -2,7 +2,7 @@ bl_info = {
     "name": "KRANIO",
     "author": "Stanley Creative",
     "version": (0, 1, 0, 0),
-    "blender": (4, 0, 0),
+    "blender": (4, 2, 0),
     "location": "3D View",
     "description": "Quick fixing and set-up of models, for improved visual fidelity!",
     "warning": "",
