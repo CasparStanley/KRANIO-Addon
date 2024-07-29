@@ -1,12 +1,12 @@
-# bl_info = {
-#     "name": "KRANIO",
-#     "author": "Stanley Creative",
-#     "version": (0, 1, 0, 0),
-#     "blender": (4, 1, 0),
-#     "location": "3D View",
-#     "description": "Quick fixing and set-up of models, for improved visual fidelity",
-#     "category": "3D View",
-# }
+bl_info = {
+    "name": "KRANIO",
+    "author": "Stanley Creative",
+    "version": (0, 1, 0, 0),
+    "blender": (4, 1, 0),
+    "location": "3D View",
+    "description": "Quick fixing and set-up of models, for improved visual fidelity",
+    "category": "3D View",
+}
 
 import bpy
 from bpy.utils import register_class, unregister_class
