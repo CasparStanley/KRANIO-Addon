@@ -10,7 +10,7 @@ from . import ui
 # Relative path to This addon
 KRANIO_filepath = ""
 for mod in addon_utils.modules():
-	if __package__['name'] == "KRANIO":
+	if mod.bl_info['name'] == "KRANIO":
 		KRANIO_filepath = mod.__file__.replace('__init__.py', '')
 
 sb_addon_name = 'SimpleBake'
