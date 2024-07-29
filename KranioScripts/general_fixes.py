@@ -1,17 +1,7 @@
 import os
 import bpy
 from bpy.utils import register_class, unregister_class
-import addon_utils
 from bpy.types import (Operator)
-
-from  .  import utils
-
-print("")
-print("--------------------------------------")
-print("KRANIO - Medical Scan Fixer Loading...")
-print("--------------------------------------")
-
-# FUNCTIONALITY --------------------------------------------------------------- FUNCTIONALITY
 
 # ------------------------------------------------------------------------
 #     GENERAL FIXES
@@ -78,7 +68,4 @@ def unregister():
         unregister_class(cls)
     
     bpy.types.VIEW3D_MT_object.remove(menu_func)
-
-if __name__ == "__main__":
-    register()
     

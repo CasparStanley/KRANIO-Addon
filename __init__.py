@@ -1,28 +1,25 @@
-bl_info = {
-    "name": "KRANIO",
-    "author": "Stanley Creative",
-    "version": (0, 1, 0, 0),
-    "blender": (4, 2, 0),
-    "location": "3D View",
-    "description": "Quick fixing and set-up of models, for improved visual fidelity!",
-    "warning": "",
-    "wiki_url": "",
-    "tracker_url": "",
-    "category": "3D View",
-}
+# bl_info = {
+#     "name": "KRANIO",
+#     "author": "Stanley Creative",
+#     "version": (0, 1, 0, 0),
+#     "blender": (4, 1, 0),
+#     "location": "3D View",
+#     "description": "Quick fixing and set-up of models, for improved visual fidelity",
+#     "category": "3D View",
+# }
 
 import bpy
 from bpy.utils import register_class, unregister_class
 
-from . import material_operators
-from . import viewport_operators
-from . import umich_kranio_addon
-from . import kranio_x_simplebake
-from . import material_assignment
-from . import property_group
-from . import ui
-from . import utils
-from . import uv_management
+from .KranioScripts import material_operators
+from .KranioScripts import viewport_operators
+from .KranioScripts import general_fixes
+from .KranioScripts import kranio_x_simplebake
+from .KranioScripts import material_assignment
+from .KranioScripts import property_group
+from .KranioScripts import ui
+from .KranioScripts import utils
+from .KranioScripts import uv_management
 
 classes = ([
         ])
@@ -34,7 +31,7 @@ def register():
 
     material_operators.register()
     viewport_operators.register()
-    umich_kranio_addon.register()
+    general_fixes.register()
     kranio_x_simplebake.register()
     property_group.register()
     material_assignment.register()
@@ -50,7 +47,7 @@ def unregister():
 
     material_operators.unregister()
     viewport_operators.unregister()
-    umich_kranio_addon.unregister()
+    general_fixes.unregister()
     kranio_x_simplebake.unregister()
     property_group.unregister()
     material_assignment.unregister()

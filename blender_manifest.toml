@@ -1,0 +1,45 @@
+schema_version = "1.0.0"
+
+# Manifest file for the KRANIO Blender extension
+id = "kranio_addon"
+version = "1.0.0"
+name = "KRANIO"
+tagline = "Quick fixing and set-up of models, for improved visual fidelity"
+maintainer = "Stanley Creative <caspar@stanleycreativestudios.com>"
+type = "add-on"
+
+# website = "https://github.com/CasparStanley/KRANIO-Addon/"
+
+tags = ["3D View", "Material", "UV"]
+
+blender_version_min = "4.2.0"
+# # Optional: Blender version that the extension does not support, earlier versions are supported.
+# # This can be omitted and defined later on the extensions platform if an issue is found.
+# blender_version_max = "5.1.0"
+
+# License conforming to https://spdx.org/licenses/ (use "SPDX: prefix)
+# https://docs.blender.org/manual/en/dev/advanced/extensions/licenses.html
+license = [
+  "SPDX:GPL-2.0-or-later",
+]
+copyright = [
+  "2024 Caspar Stanley",
+  "2024 Warrior Homesteads",
+]
+
+# Optional list of supported platforms. If omitted, the extension will be available in all operating systems.
+# platforms = ["windows-x64", "macos-arm64", "linux-x64"]
+# Other supported platforms: "windows-arm64", "macos-x64"
+
+[permissions]
+files = "Export Textures and FBX to disk"
+
+# Build settings
+# https://docs.blender.org/manual/en/dev/advanced/extensions/command_line_arguments.html#command-line-args-extension-build
+[build]
+paths_exclude_pattern = [
+  "__pycache__/",
+  "/.git/",
+  "/*.gitattributes",
+  "/*.zip",
+]

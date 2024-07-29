@@ -10,7 +10,7 @@ from . import ui
 # Relative path to This addon
 KRANIO_filepath = ""
 for mod in addon_utils.modules():
-	if mod.bl_info['name'] == "KRANIO":
+	if __package__['name'] == "KRANIO":
 		KRANIO_filepath = mod.__file__.replace('__init__.py', '')
 
 sb_addon_name = 'SimpleBake'
@@ -26,10 +26,10 @@ def get_kranio_path():
 	return KRANIO_filepath
 		
 def get_kranio_mat_library_filename():
-	return "UMich_Addon-Material-Library.blend"
+	return "KRANIO-Material-Library.blend"
 
 def get_kranio_mat_library_path():
-	return f"{get_kranio_path()}{get_kranio_mat_library_filename()}"
+	return f"{get_kranio_path()}KranioMaterialLibrary/{get_kranio_mat_library_filename()}"
 	
 class ViewportViewChanger:
 	def redraw_3d_viewport():
