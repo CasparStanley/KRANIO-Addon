@@ -185,16 +185,14 @@ class KRANIO_OT_Clear_S(Operator):
         return {'FINISHED'}
     
 class KRANIO_OT_Addon_Blendermarket_S(Operator):
-    """If you do not have the SimpleBake addon, you cannot use this feature. To export your textures as simply as with a click of a button, please purchase the SimpleBake addon. Click here to be taken to BlenderMarket.com where you can do that"""
+    """If you wish to export your textures as simply as with a click of a button, the SimpleBake add-on is a great way to do so. If you own the SimpleBake add-on, this button will connect to it and export all of your textures in 1 click."""
     bl_idname = "kranio.getsimplebake"
-    bl_label = "Get SimpleBake"
+    bl_label = "How to get SimpleBake"
     
+    # Complying with Blender Extensions Terms of Service, KRANIO does not require SimpleBake to work, and a link to its product page is not given.
+    # However, if the user already owns SimpleBake, KRANIO can take advantage of it to simplify the texture baking and export process.
     def execute(self, context):
-        try:
-            import webbrowser
-            webbrowser.open('https://blendermarket.com/products/simplebake---simple-pbr-and-other-baking-in-blender-2', new=2)
-        except Exception as err:
-            print(f"KRANIO ERROR: Attempted 'import webbrowser' and 'webbrowser.open()' --- FAILED WITH: {err}")
+        self.report({'INFO'}, "SimpleBake can be purchased on blendermarket.com")
         return {'FINISHED'}
     
 class KRANIO_OT_SimpleBake_Initialize_S(Operator):
@@ -204,7 +202,7 @@ class KRANIO_OT_SimpleBake_Initialize_S(Operator):
     
     def execute(self, context):
         # Create the "bake_state" property for all mesh objects
-        for ob in bpy.data.objects:
+        for ob in bpy.context.scene.objects:
             if (ob is not None):
                 if (ob.type == "MESH"):
                     try:

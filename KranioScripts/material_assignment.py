@@ -42,7 +42,7 @@ class KRANIO_OT_Assign_Material(Operator):
         material = bpy.data.materials.get(self.mat_name)
 
         # Remove non-mesh objects from the selection
-        [obj.select_set(False) for obj in bpy.data.objects if obj.type != "MESH"]
+        [obj.select_set(False) for obj in bpy.context.scene.objects if obj.type != "MESH"]
 
         # Set active object if none is set already
         if bpy.context.active_object == None:

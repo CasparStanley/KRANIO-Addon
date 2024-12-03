@@ -15,7 +15,7 @@ class KRANIO_UV_Support_Methods():
     @classmethod
     def remove_non_meshes_and_ensure_active(self):
         # Remove non-mesh objects from the selection
-        [ob.select_set(False) for ob in bpy.data.objects if ob.type != "MESH"]
+        [ob.select_set(False) for ob in bpy.context.scene.objects if ob.type != "MESH"]
 
         # Set active object if none is set already
         if bpy.context.active_object == None:
@@ -55,7 +55,7 @@ class KRANIO_OT_Process_UV_Maps(Operator):
         active = None
         try:
             if self.override_active_name != "":
-                active = [bpy.data.objects[self.override_active_name]]
+                active = [bpy.context.scene.objects[self.override_active_name]]
             else:
                 try: # There might not be an active object... so we TRY!
                     active = bpy.context.view_layer.objects.active

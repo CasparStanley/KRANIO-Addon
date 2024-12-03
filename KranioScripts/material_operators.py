@@ -388,14 +388,14 @@ class KRANIO_OT_Vein_Operation(Operator):
         return {'RUNNING_MODAL'}
 class KRANIO_OT_Venous_Malformation_Operation(Operator):
     bl_idname = "kranio.venous_malformation_operation"
-    bl_label = "Venous Malformation"
+    bl_label = "AVM"
     bl_options = {'UNDO'}
 
     _timer = None
     def modal(self, context, event):
         if self.dns.get('material_set_finished'):
             context.window_manager.event_timer_remove(self._timer)
-            self.report({'INFO'}, "Finished assigning Venous Malformation")
+            self.report({'INFO'}, "Finished assigning AVM")
             del bpy.app.driver_namespace['material_set_finished']
             return {'FINISHED'}
         return {'PASS_THROUGH'}
@@ -409,7 +409,7 @@ class KRANIO_OT_Venous_Malformation_Operation(Operator):
         dns['material_set_finished'] = False
         self.dns = dns
 
-        MACRO.define("KRANIO_OT_assign_mat").properties.mat_name = "Venous-Malformation_textured" # Define a sub-op that tells the modal to assign this material
+        MACRO.define("KRANIO_OT_assign_mat").properties.mat_name = "AVM_textured" # Define a sub-op that tells the modal to assign this material
         MACRO.define("KRANIO_OT_process_uv_maps") # Unwrap with standard settings
         MACRO.define("KRANIO_OT_material_set_finished") # Define a last sub-op that tells the modal the unwraps are done
     

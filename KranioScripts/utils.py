@@ -11,7 +11,7 @@ from . import ui
 KRANIO_filepath = ""
 for mod in addon_utils.modules():
 	if __package__['name'] == "KRANIO":
-		KRANIO_filepath = mod.__file__.replace('__init__.py', '')
+		KRANIO_filepath = os.path.dirname(mod.__file__)
 
 sb_addon_name = 'SimpleBake'
 

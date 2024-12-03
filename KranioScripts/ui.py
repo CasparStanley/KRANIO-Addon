@@ -45,7 +45,7 @@ class KRANIO_PT_main_panel(Panel):
         row.label(text = "Objects Bake State", icon = 'FORCE_TEXTURE')
 
         # State of all bake-able objects
-        for ob in bpy.data.objects:
+        for ob in bpy.context.scene.objects:
             if (ob is not None):
                 if (ob.type == "MESH" and ob.data.materials): # If the object is a mesh and has a material on it, consider it something we want to show
                     try:
