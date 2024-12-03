@@ -3,6 +3,14 @@ from bpy.utils import register_class, unregister_class
 from bpy.types import (Operator)
 from .utils  import SimpleBakeHook
 
+# A little function to show a info box with a short message
+def show_message_box(message = "", title = "Message Box", icon = 'INFO'):
+
+    def draw(self, context):
+        self.layout.label(text = message)
+
+    bpy.context.window_manager.popup_menu(draw, title = title, icon = icon)
+
 # ------------------------------------------------------------------------
 #     TEXTURE BAKING
 # ------------------------------------------------------------------------
@@ -185,14 +193,19 @@ class KRANIO_OT_Clear_S(Operator):
         return {'FINISHED'}
     
 class KRANIO_OT_Addon_Blendermarket_S(Operator):
-    """If you wish to export your textures as simply as with a click of a button, the SimpleBake add-on is a great way to do so. If you own the SimpleBake add-on, this button will connect to it and export all of your textures in 1 click."""
+    """If you wish to export your textures as simply as with a click of a button, the SimpleBake add-on is a great way to do so. If you own the SimpleBake add-on, KRANIO can connect to it and export all of your textures in 1 click."""
     bl_idname = "kranio.getsimplebake"
     bl_label = "How to get SimpleBake"
+
+    message = "SimpleBake can be purchased on blendermarket.com"
     
     # Complying with Blender Extensions Terms of Service, KRANIO does not require SimpleBake to work, and a link to its product page is not given.
     # However, if the user already owns SimpleBake, KRANIO can take advantage of it to simplify the texture baking and export process.
     def execute(self, context):
-        self.report({'INFO'}, "SimpleBake can be purchased on blendermarket.com")
+        self.report({'INFO'}, self.message)
+        
+        #Shows a message box with a message and custom title
+        show_message_box(self.message, "How to get SimpleBake")
         return {'FINISHED'}
     
 class KRANIO_OT_SimpleBake_Initialize_S(Operator):

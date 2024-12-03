@@ -1,7 +1,7 @@
 # bl_info = {
 #     "name": "KRANIO",
 #     "author": "Stanley Creative",
-#     "version": (0, 1, 0, 0),
+#     "version": (0, 1, 0, 1),
 #     "blender": (4, 1, 0),
 #     "location": "3D View",
 #     "description": "Quick fixing and set-up of models, for improved visual fidelity",
@@ -20,6 +20,12 @@ from .KranioScripts import property_group
 from .KranioScripts import ui
 from .KranioScripts import utils
 from .KranioScripts import uv_management
+
+print("")		
+print("==========================================")
+print("Starting KRANIO Extension, version: 1.0.1")	
+print("==========================================")
+print("")	
 
 classes = ([
         ])

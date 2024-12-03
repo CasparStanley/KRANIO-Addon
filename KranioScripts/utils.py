@@ -7,11 +7,12 @@ import addon_utils
 from pathlib import Path
 from . import ui
 
-# Relative path to This addon
-KRANIO_filepath = ""
-for mod in addon_utils.modules():
-	if __package__['name'] == "KRANIO":
-		KRANIO_filepath = os.path.dirname(mod.__file__)
+# Path of This addon — used for locating the material library and the SimpleBake preset file
+# "os.path.dirname(__file__)"" gets the path to this script, utils.py
+# "os.pardir" is a string, either ".." or "::" based on the OS, and indicates moving up in the folder structure
+KRANIO_filepath = f"{os.path.join(os.path.dirname(__file__), os.pardir)}/"
+
+print(f"==== KRANIO_filepath: '{KRANIO_filepath}' ====")
 
 sb_addon_name = 'SimpleBake'
 
