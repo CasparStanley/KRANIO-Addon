@@ -3,6 +3,14 @@ from bpy.utils import register_class, unregister_class
 from bpy.types import (Operator)
 from .utils  import SimpleBakeHook
 
+# A little function to show a info box with a short message
+def show_message_box(message = "", title = "Message Box", icon = 'INFO'):
+
+    def draw(self, context):
+        self.layout.label(text = message)
+
+    bpy.context.window_manager.popup_menu(draw, title = title, icon = icon)
+
 # ------------------------------------------------------------------------
 #     TEXTURE BAKING
 # ------------------------------------------------------------------------
@@ -185,10 +193,11 @@ class KRANIO_OT_Clear_S(Operator):
         return {'FINISHED'}
     
 class KRANIO_OT_Addon_Blendermarket_S(Operator):
-    """If you do not have the SimpleBake addon, you cannot use this feature. To export your textures as simply as with a click of a button, please purchase the SimpleBake addon. Click here to be taken to BlenderMarket.com where you can do that"""
+    """If you wish to export your textures as simply as with a click of a button, the SimpleBake add-on is a great way to do so. If you own the SimpleBake add-on, KRANIO can connect to it and export all of your textures in 1 click."""
     bl_idname = "kranio.getsimplebake"
     bl_label = "Get SimpleBake"
-    
+
+    # If the user owns SimpleBake, KRANIO can take advantage of it to simplify the texture baking and export process.
     def execute(self, context):
         try:
             import webbrowser
@@ -204,7 +213,7 @@ class KRANIO_OT_SimpleBake_Initialize_S(Operator):
     
     def execute(self, context):
         # Create the "bake_state" property for all mesh objects
-        for ob in bpy.data.objects:
+        for ob in bpy.context.scene.objects:
             if (ob is not None):
                 if (ob.type == "MESH"):
                     try:
