@@ -120,17 +120,16 @@ def masking_cleanup(mask_name, ob_name):
         pass
     
     # Go back to main panel
-    match mask_name:
-        case "Teeth Area Mask":
-            kranio_props.currently_assigning_teeth = False
-        case "Cerebellum Area Mask":
-            kranio_props.currently_assigning_cerebellum = False
-            pass
-        case "Brain Stem Area Mask":
-            kranio_props.currently_assigning_brain_stem = False
-            pass
-        case _:
-            pass
+    if (mask_name == "Teeth Area Mask"):
+        kranio_props.currently_assigning_teeth = False
+    elif (mask_name == "Cerebellum Area Mask"):
+        kranio_props.currently_assigning_cerebellum = False
+        pass
+    elif (mask_name == "Brain Stem Area Mask"):
+        kranio_props.currently_assigning_brain_stem = False
+        pass
+    else :
+        pass
     
     # Select the main object again
     ob = bpy.context.scene.objects[ob_name]

@@ -409,18 +409,17 @@ class KRANIO_PT_main_panel(Panel):
                         self.drawAddBakeState(context, box)
                     else:
                         if (ob['bake_state'] is not None):
-                            match ob['bake_state']:
-                                # Prepare SimpleBake
-                                case 0:
-                                    self.drawBakePrepare_sub(context, box, ob)
-                                # Bake!
-                                case 1:
-                                    self.drawBakeBake_sub(context, box, kranio_props, sbp)
-                                # Object has been baked, but you can still bake again
-                                case 2:
-                                    self.drawBakeBake_sub(context, box, kranio_props, sbp)
-                                case _:
-                                    print ("what")
+                            # Prepare SimpleBake
+                            if (ob['bake_state'] == 0):
+                                self.drawBakePrepare_sub(context, box, ob)
+                            # Bake!
+                            elif (ob['bake_state'] == 1):
+                                self.drawBakeBake_sub(context, box, kranio_props, sbp)
+                            # Object has been baked, but you can still bake again
+                            elif (ob['bake_state'] == 2):
+                                self.drawBakeBake_sub(context, box, kranio_props, sbp)
+                            else :
+                                print ("what")
                 
             else:
                 row = box.row()

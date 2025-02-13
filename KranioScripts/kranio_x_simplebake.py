@@ -15,15 +15,14 @@ def show_message_box(message = "", title = "Message Box", icon = 'INFO'):
 #     TEXTURE BAKING
 # ------------------------------------------------------------------------
 def set_object_state(ob, state_name):
-    match state_name:
-        case "new":
-            ob['bake_state'] = 0
-        case "prepared":
-            ob['bake_state'] = 1
-        case "baked":
-            ob['bake_state'] = 2
-        case _:
-            pass
+    if (state_name == "new"):
+        ob['bake_state'] = 0
+    elif (state_name ==  "prepared"):
+        ob['bake_state'] = 1
+    elif (state_name ==  "baked"):
+        ob['bake_state'] = 2
+    else :
+        pass
 
 class KRANIO_OT_Object_State_S(Operator):
     """Add the object to the list of objects that we want to bake"""

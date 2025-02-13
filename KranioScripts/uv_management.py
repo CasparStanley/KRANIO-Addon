@@ -90,33 +90,32 @@ class KRANIO_OT_Process_UV_Maps(Operator):
             bpy.ops.object.editmode_toggle()
             bpy.ops.mesh.select_all(action='SELECT') # for all faces
 
-            match self.u_method:
-                case "CUBE":
-                    bpy.ops.uv.cube_project(cube_size=ob_size, correct_aspect=True, clip_to_bounds=False, scale_to_bounds=False)
-                case "SMART":
-                    bpy.ops.uv.smart_project(angle_limit=1.15192, margin_method='SCALED', rotate_method='AXIS_ALIGNED_Y', island_margin=0.001, area_weight=0.0, correct_aspect=True, scale_to_bounds=False)
-                case "SimpleBake":
-                    bpy.ops.uv.smart_project(angle_limit=1.15192, margin_method='SCALED', rotate_method='AXIS_ALIGNED_Y', island_margin=0.001, area_weight=0.0, correct_aspect=True, scale_to_bounds=False)
-                case "FRONT":
-                    bpy.ops.uv.project_from_view(orthographic=True, camera_bounds=True, correct_aspect=False, clip_to_bounds=False, scale_to_bounds=False)
-                    KRANIO_UV_Support_Methods.pack_islands(False, True, 0.001)
-                case "BACK":
-                    bpy.ops.uv.project_from_view(orthographic=True, camera_bounds=True, correct_aspect=False, clip_to_bounds=False, scale_to_bounds=False)
-                    KRANIO_UV_Support_Methods.pack_islands(False, True, 0.001)
-                case "LEFT":
-                    bpy.ops.uv.project_from_view(orthographic=True, camera_bounds=True, correct_aspect=False, clip_to_bounds=False, scale_to_bounds=False)
-                    KRANIO_UV_Support_Methods.pack_islands(False, True, 0.001)
-                case "RIGHT":
-                    bpy.ops.uv.project_from_view(orthographic=True, camera_bounds=True, correct_aspect=False, clip_to_bounds=False, scale_to_bounds=False)
-                    KRANIO_UV_Support_Methods.pack_islands(False, True, 0.001)
-                case "TOP":
-                    bpy.ops.uv.project_from_view(orthographic=True, camera_bounds=True, correct_aspect=False, clip_to_bounds=False, scale_to_bounds=False)
-                    KRANIO_UV_Support_Methods.pack_islands(False, True, 0.001)
-                case "BOTTOM":
-                    bpy.ops.uv.project_from_view(orthographic=True, camera_bounds=True, correct_aspect=False, clip_to_bounds=False, scale_to_bounds=False)
-                    KRANIO_UV_Support_Methods.pack_islands(False, True, 0.001)
-                case _:
-                    print("UV unwrap couldn't be done. The unwrapping method was not expected.")
+            if (self.u_method == "CUBE"):
+                bpy.ops.uv.cube_project(cube_size=ob_size, correct_aspect=True, clip_to_bounds=False, scale_to_bounds=False)
+            elif (self.u_method == "SMART"):
+                bpy.ops.uv.smart_project(angle_limit=1.15192, margin_method='SCALED', rotate_method='AXIS_ALIGNED_Y', island_margin=0.001, area_weight=0.0, correct_aspect=True, scale_to_bounds=False)
+            elif (self.u_method == "SimpleBake"):
+                bpy.ops.uv.smart_project(angle_limit=1.15192, margin_method='SCALED', rotate_method='AXIS_ALIGNED_Y', island_margin=0.001, area_weight=0.0, correct_aspect=True, scale_to_bounds=False)
+            elif (self.u_method == "FRONT"):
+                bpy.ops.uv.project_from_view(orthographic=True, camera_bounds=True, correct_aspect=False, clip_to_bounds=False, scale_to_bounds=False)
+                KRANIO_UV_Support_Methods.pack_islands(False, True, 0.001)
+            elif (self.u_method == "BACK"):
+                bpy.ops.uv.project_from_view(orthographic=True, camera_bounds=True, correct_aspect=False, clip_to_bounds=False, scale_to_bounds=False)
+                KRANIO_UV_Support_Methods.pack_islands(False, True, 0.001)
+            elif (self.u_method == "LEFT"):
+                bpy.ops.uv.project_from_view(orthographic=True, camera_bounds=True, correct_aspect=False, clip_to_bounds=False, scale_to_bounds=False)
+                KRANIO_UV_Support_Methods.pack_islands(False, True, 0.001)
+            elif (self.u_method == "RIGHT"):
+                bpy.ops.uv.project_from_view(orthographic=True, camera_bounds=True, correct_aspect=False, clip_to_bounds=False, scale_to_bounds=False)
+                KRANIO_UV_Support_Methods.pack_islands(False, True, 0.001)
+            elif (self.u_method == "TOP"):
+                bpy.ops.uv.project_from_view(orthographic=True, camera_bounds=True, correct_aspect=False, clip_to_bounds=False, scale_to_bounds=False)
+                KRANIO_UV_Support_Methods.pack_islands(False, True, 0.001)
+            elif (self.u_method == "BOTTOM"):
+                bpy.ops.uv.project_from_view(orthographic=True, camera_bounds=True, correct_aspect=False, clip_to_bounds=False, scale_to_bounds=False)
+                KRANIO_UV_Support_Methods.pack_islands(False, True, 0.001)
+            else :
+                print("UV unwrap couldn't be done. The unwrapping method was not expected.")
 
             if self.pack_separate:
                 KRANIO_UV_Support_Methods.pack_islands(True, True, 0.001)
