@@ -50,14 +50,13 @@ class KRANIO_PT_main_panel(Panel):
                 if (ob.type == "MESH" and ob.data.materials): # If the object is a mesh and has a material on it, consider it something we want to show
                     try:
                         if (ob['bake_state'] is not None):
-                            match ob['bake_state']:
-                                case 0:
-                                    row = box.row()
-                                    row.label(text = f"{ob.name}", icon = 'PROP_OFF')
-                                case 1:
+                            if (ob['bake_state'] == 0):
+                                row = box.row()
+                                row.label(text = f"{ob.name}", icon = 'PROP_OFF')
+                            elif (ob['bake_state'] == 1):
                                     row = box.row()
                                     row.label(text = f"{ob.name}", icon = 'PROP_ON')
-                                case 2:
+                            elif (ob['bake_state'] == 2):
                                     row = box.row()
                                     row.label(text = f"{ob.name}", icon = 'CHECKMARK')
                         elif (ob['bake_state'] is None):
