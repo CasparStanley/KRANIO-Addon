@@ -23,7 +23,7 @@ from .KranioScripts import uv_management
 
 import sys
 
-print("")		
+print("")
 print("==========================================")
 print("Starting KRANIO Extension, version: 1.0.1")
 print("==========================================")
